@@ -7,7 +7,7 @@ def gerar_arquivo(nome_arquivo):
     print("Arquivo criado com sucesso !")
 
 def salva_arquivo(dado_formatdo, nome_arquivo):
-  arquivo = open(nome_arquivo, 'w', encoding='utf-8') # Mudar modo de gravar
+  arquivo = open(nome_arquivo, 'w', encoding='utf-8') # Mudar modo de gravar pois w fica so substituindo ( temos que ir "empilhando")
   arquivo.write(dado_formatdo)
 
 
@@ -19,11 +19,12 @@ def ler_arquivo(nome_arquivo):
 
 def cadastro(classificacao, preco, nome_produto, nome_arquivo):
   if classificacao == "Ativo Circulante":
-        dado_formatado = classificacao + " " + nome_produto + " " + preco
+        dado_formatado = classificacao + "-" + nome_produto + "-" + str(preco)
         salvar = input("Deseja salvar as informações ? (s/n)\n ").lower()
         match (salvar):
           case "s":
             salva_arquivo(dado_formatado, nome_arquivo)
+            # colocar versao alternativa ao SIM
 
 def exibir_balanco(leitura: list):
   print("")
@@ -58,5 +59,3 @@ def gerar_balanco(leitura: list):
     print("O balanço está correto\n")
   else:
     print("O balanço está incorreto\n")
-
-    
