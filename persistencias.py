@@ -18,12 +18,40 @@ def ler_arquivo(nome_arquivo):
   gerar_balanco(leitura)
 
 def cadastro(classificacao, preco, nome_produto, nome_arquivo):
-  if classificacao == "Ativo Circulante":
-        dado_formatado = classificacao + "-" + nome_produto + "-" + str(preco)
+  if classificacao == "AC":
+        dado_formatado = classificacao + " " + nome_produto + " " + str(preco)
         salvar = input("Deseja salvar as informações ? (s/n)\n ").lower()
         match (salvar):
           case "s":
             salva_arquivo(dado_formatado, nome_arquivo)
+  if classificacao == "ANC":
+        dado_formatado = classificacao + " " + nome_produto + " " + str(preco)
+        salvar = input("Deseja salvar as informações ? (s/n)\n ").lower()
+        match (salvar):
+          case "s":
+            salva_arquivo(dado_formatado, nome_arquivo)
+
+  if classificacao == "PC":
+        dado_formatado = classificacao + " " + nome_produto + " " + str(preco)
+        salvar = input("Deseja salvar as informações ? (s/n)\n ").lower()
+        match (salvar):
+          case "s":
+            salva_arquivo(dado_formatado, nome_arquivo)
+
+  if classificacao == "PNC":
+        dado_formatado = classificacao + " " + nome_produto + " " + str(preco)
+        salvar = input("Deseja salvar as informações ? (s/n)\n ").lower()
+        match (salvar):
+          case "s":
+            salva_arquivo(dado_formatado, nome_arquivo)
+
+  if classificacao == "PL":
+        dado_formatado = classificacao + " " + nome_produto + " " + str(preco)
+        salvar = input("Deseja salvar as informações ? (s/n)\n ").lower()
+        match (salvar):
+          case "s":
+            salva_arquivo(dado_formatado, nome_arquivo)
+
             # colocar versao alternativa ao SIM
 
 def exibir_balanco(leitura: list):
