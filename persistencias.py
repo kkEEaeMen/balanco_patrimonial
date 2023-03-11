@@ -19,11 +19,14 @@ def ler_arquivo(nome_arquivo):
 
 def cadastro(classificacao, preco, nome_produto, nome_arquivo):
   if classificacao == "AC":
+
         dado_formatado = classificacao + " " + nome_produto + " " + str(preco)
+
         salvar = input("Deseja salvar as informações ? (s/n)\n ").lower()
         match (salvar):
           case "s":
             salva_arquivo(dado_formatado, nome_arquivo)
+
   if classificacao == "ANC":
         dado_formatado = classificacao + " " + nome_produto + " " + str(preco)
         salvar = input("Deseja salvar as informações ? (s/n)\n ").lower()
@@ -53,6 +56,9 @@ def cadastro(classificacao, preco, nome_produto, nome_arquivo):
             salva_arquivo(dado_formatado, nome_arquivo)
 
             # colocar versao alternativa ao SIM
+
+            #colocar versao alternativa ao SIM
+
 
 def exibir_balanco(leitura: list):
   print("")
