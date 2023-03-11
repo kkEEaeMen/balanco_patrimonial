@@ -1,7 +1,3 @@
-from telas import *
-
-elementos = []
-
 def gerar_arquivo(nome_arquivo):
   try:
     arquivo = open(nome_arquivo, 'x', encoding='utf-8')
@@ -13,16 +9,9 @@ def gerar_arquivo(nome_arquivo):
 def salva_arquivo(dado_formatdo, nome_arquivo):
   arquivo = open(nome_arquivo, 'w', encoding='utf-8') # Mudar modo de gravar
   arquivo.write(dado_formatdo)
-=======
-   with open(nome_arquivo,'w', encoding='utf-8') as arquivo:
-      print("Arquivo criado com sucesso !")
->>>>>>> d6f4dd2e70822af8e31e120e0a4660ff396b24d9
 
-def gravar_arquivo():
-  pass
 
 def ler_arquivo(nome_arquivo):
-<<<<<<< HEAD
   arquivo = open(nome_arquivo, 'r', encoding='utf-8')
   leitura = arquivo.readlines()
   exibir_balanco(leitura)
@@ -69,12 +58,5 @@ def gerar_balanco(leitura: list):
     print("O balanço está correto\n")
   else:
     print("O balanço está incorreto\n")
-=======
-   arquivo = open(nome_arquivo, 'r', encoding='utf-8')
-   leitura = arquivo.readlines()
-   for i in leitura:
-      print(i)
 
-def cadastro(classificao):
-  pass
->>>>>>> d6f4dd2e70822af8e31e120e0a4660ff396b24d9
+    
