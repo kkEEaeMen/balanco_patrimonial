@@ -1,6 +1,5 @@
 from persistencias import *
 
-<<<<<<< HEAD
 def inicializar() -> str:
   print("1 - Criar novo Arquivo\n2 - Abrir Arquivo")
   op = int(input("Escolha uma Opção: "))
@@ -13,7 +12,7 @@ def inicializar() -> str:
     case 2:
       ler_arquivo(nome_arquivo)
       return nome_arquivo
-=======
+    
 def inicializar():
   print("1 - Criar novo Arquivo\n2 - Abrir Arquivo")
   op = input("Escolha uma Opção: ")
@@ -25,4 +24,4 @@ def inicializar():
       return nome_arquivo
     case 2:
       pass
->>>>>>> d6f4dd2e70822af8e31e120e0a4660ff396b24d9
+

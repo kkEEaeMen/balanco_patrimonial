@@ -3,7 +3,6 @@ from telas import *
 elementos = []
 
 def gerar_arquivo(nome_arquivo):
-<<<<<<< HEAD
   try:
     arquivo = open(nome_arquivo, 'x', encoding='utf-8')
   except:
