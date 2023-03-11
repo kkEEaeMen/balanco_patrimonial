@@ -8,3 +8,4 @@ while parada:
   menu(nome_arquivo)
   ler_arquivo(nome_arquivo)
   parada = deseja_continuar(parada)
+
