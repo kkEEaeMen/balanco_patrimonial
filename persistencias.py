@@ -24,7 +24,7 @@ def cadastro(classificacao, preco, nome_produto, nome_arquivo):
         match (salvar):
           case "s":
             salva_arquivo(dado_formatado, nome_arquivo)
-            # colocar versao alternativa ao SIM
+            #colocar versao alternativa ao SIM
 
 def exibir_balanco(leitura: list):
   print("")
