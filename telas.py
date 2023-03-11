@@ -37,19 +37,19 @@ def classificacao(preco_produto, nome_produto, nome_arquivo):
   classificacoes = int(input(" 1 - Ativo Circulante\n 2 - Ativo Não Circulante\n 3 - Passivo Circulante\n 4 - Passivo Não Circulante\n 5 - Patrimônio Liquido\n "))
   match classificacoes:
     case 1:
-      AC = "Ativo Circulante"
+      AC = "AC"
       cadastro(AC, preco_produto, nome_produto, nome_arquivo)
     case 2:
-      ANC = "Ativo Não Circulante"
+      ANC = "ANC"
       cadastro(ANC, preco_produto, nome_produto, nome_arquivo)
     case 3:
-      PC = "Passivo Circulante"
+      PC = "PC"
       cadastro(PC, preco_produto, nome_produto, nome_arquivo)
     case 4:
-      PNC = "Passivo Não Circulante"
+      PNC = "PNC"
       cadastro(PNC, preco_produto, nome_produto, nome_arquivo)
     case 5:
-      PL = "Patrimônio Liquido"
+      PL = "PL"
       cadastro(PL, preco_produto, nome_produto, nome_arquivo)
 
 def deseja_continuar(parada):

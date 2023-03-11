@@ -18,7 +18,7 @@ def ler_arquivo(nome_arquivo):
   gerar_balanco(leitura)
 
 def cadastro(classificacao, preco, nome_produto, nome_arquivo):
-  if classificacao == "Ativo Circulante":
+  if classificacao == "AC":
         dado_formatado = classificacao + "-" + nome_produto + "-" + str(preco)
         salvar = input("Deseja salvar as informações ? (s/n)\n ").lower()
         match (salvar):
