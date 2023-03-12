@@ -1,3 +1,5 @@
+salvar = []
+
 def gerar_arquivo(nome_arquivo):
   try:
     arquivo = open(nome_arquivo, 'x', encoding='utf-8')
@@ -6,10 +8,11 @@ def gerar_arquivo(nome_arquivo):
   else:
     print("Arquivo criado com sucesso !")
 
-def salva_arquivo(dado_formatdo, nome_arquivo):
+def salva_arquivo(nome_arquivo):
   arquivo = open(nome_arquivo, 'a', encoding='utf-8')
-  arquivo.write(f"{dado_formatdo}\n")
-
+  for i in salvar:
+    arquivo.write(f"{i}\n")
+  salvar.clear()
 
 def ler_arquivo(nome_arquivo):
   arquivo = open(nome_arquivo, 'r', encoding='utf-8')
@@ -17,48 +20,62 @@ def ler_arquivo(nome_arquivo):
   exibir_balanco(leitura)
   gerar_balanco(leitura)
 
-def cadastro(classificacao, preco, nome_produto, nome_arquivo):
-  if classificacao == "AC":
+def cadastro(classificacao, preco, nome_produto):
+  match classificacao:
+    case "AC":
+      dado_formatado = classificacao + " " + nome_produto + " " + str(preco)
+      salvar.append(dado_formatado)
+    case "ANC":
+      dado_formatado = classificacao + " " + nome_produto + " " + str(preco)
+      salvar.append(dado_formatado)
+    case "PC":
+      dado_formatado = classificacao + " " + nome_produto + " " + str(preco)
+      salvar.append(dado_formatado)
+    case "PNC":
+      dado_formatado = classificacao + " " + nome_produto + " " + str(preco)
+      salvar.append(dado_formatado)
+    case "PL":
+      dado_formatado = classificacao + " " + nome_produto + " " + str(preco)
+      salvar.append(dado_formatado)
 
-        dado_formatado = classificacao + " " + nome_produto + " " + str(preco)
+def detectar_itens(nome_arquivo, item):
+  arquivo = open(nome_arquivo, 'r', encoding='utf-8')
+  leitura = arquivo.readlines()
+  item = item.split()
+  cont = 0
+  for i in range(len(leitura)):
+    linha = leitura[i].split()
+    linha.pop(0)
+    linha.pop(-1)
+    cont += 1
+    if item == linha:
+      return cont
+  return False
 
-        salvar = input("Deseja salvar as informações ? (s/n)\n ").lower()
-        match (salvar):
-          case "s":
-            salva_arquivo(dado_formatado, nome_arquivo)
+def alterar_itens(nome_arquivo): # não está funcionando
+  item = input("Qual item quer alterar: ")
+  item_separado = item.split()
+  arquivo = open(nome_arquivo, 'r', encoding='utf-8')
+  leitura = arquivo.readlines()
+  for i in range(len(leitura)):
+    linha = leitura[i].split()
+    linha.pop(0)
+    linha.pop(-1)
+    print(linha)
+    if item_separado == linha:
+      valor = float(input(f"Qual o novo valor do item {item}: "))
+      linha[-1] = str(valor)
+  linha_junta = ""
+  for i in linha:
+    linha_junta += i + " "
+  linha = linha_junta
+  arquivo.close()
+  arquivo = open(nome_arquivo, 'w', encoding='utf-8')
+  arquivo.writelines(linha)
+  arquivo.close()
 
-  if classificacao == "ANC":
-        dado_formatado = classificacao + " " + nome_produto + " " + str(preco)
-        salvar = input("Deseja salvar as informações ? (s/n)\n ").lower()
-        match (salvar):
-          case "s":
-            salva_arquivo(dado_formatado, nome_arquivo)
-
-  if classificacao == "PC":
-        dado_formatado = classificacao + " " + nome_produto + " " + str(preco)
-        salvar = input("Deseja salvar as informações ? (s/n)\n ").lower()
-        match (salvar):
-          case "s":
-            salva_arquivo(dado_formatado, nome_arquivo)
-
-  if classificacao == "PNC":
-        dado_formatado = classificacao + " " + nome_produto + " " + str(preco)
-        salvar = input("Deseja salvar as informações ? (s/n)\n ").lower()
-        match (salvar):
-          case "s":
-            salva_arquivo(dado_formatado, nome_arquivo)
-
-  if classificacao == "PL":
-        dado_formatado = classificacao + " " + nome_produto + " " + str(preco)
-        salvar = input("Deseja salvar as informações ? (s/n)\n ").lower()
-        match (salvar):
-          case "s":
-            salva_arquivo(dado_formatado, nome_arquivo)
-
-            # colocar versao alternativa ao SIM
-
-            #colocar versao alternativa ao SIM
-
+def remover_itens(nome_arquivo):
+  pass
 
 def exibir_balanco(leitura: list):
   print("")
