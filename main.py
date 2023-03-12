@@ -2,10 +2,13 @@ from persistencias import *
 from telas import *
 from inicializacao import *
 
-parada = True
-while parada:
-  nome_arquivo = inicializar()
-  menu(nome_arquivo)
-  ler_arquivo(nome_arquivo)
-  parada = deseja_continuar(parada)
+parada_arquivo = True
+parada_leitura = True
 
+while parada_arquivo:
+  nome_arquivo = inicializar()
+  while parada_leitura:
+    menu(nome_arquivo)
+    parada_leitura = deseja_continuar(parada_leitura)
+  ler_arquivo(nome_arquivo)
+  parada_arquivo = deseja_continuar(parada_arquivo)

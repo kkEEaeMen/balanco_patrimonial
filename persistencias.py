@@ -7,8 +7,8 @@ def gerar_arquivo(nome_arquivo):
     print("Arquivo criado com sucesso !")
 
 def salva_arquivo(dado_formatdo, nome_arquivo):
-  arquivo = open(nome_arquivo, 'w', encoding='utf-8') # Mudar modo de gravar pois w fica so substituindo ( temos que ir "empilhando")
-  arquivo.write(dado_formatdo)
+  arquivo = open(nome_arquivo, 'a', encoding='utf-8')
+  arquivo.write(f"{dado_formatdo}\n")
 
 
 def ler_arquivo(nome_arquivo):
