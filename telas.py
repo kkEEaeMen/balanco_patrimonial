@@ -9,7 +9,7 @@ def menu(nome_arquivo):
     case 2:
       alterar_itens(nome_arquivo)
     case 3:
-      pass
+      remover_itens(nome_arquivo)
     case 4:
       salva_arquivo(nome_arquivo)
     case 5:

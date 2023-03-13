@@ -42,40 +42,58 @@ def detectar_itens(nome_arquivo, item):
   arquivo = open(nome_arquivo, 'r', encoding='utf-8')
   leitura = arquivo.readlines()
   item = item.split()
-  cont = 0
   for i in range(len(leitura)):
     linha = leitura[i].split()
     linha.pop(0)
     linha.pop(-1)
-    cont += 1
     if item == linha:
-      return cont
+      return i + 1
   return False
 
 def alterar_itens(nome_arquivo): # não está funcionando
+  item_comparador = []
   item = input("Qual item quer alterar: ")
-  item_separado = item.split()
   arquivo = open(nome_arquivo, 'r', encoding='utf-8')
   leitura = arquivo.readlines()
+  item_comparador.append(item)
   for i in range(len(leitura)):
     linha = leitura[i].split()
     linha.pop(0)
     linha.pop(-1)
-    print(linha)
-    if item_separado == linha:
-      valor = float(input(f"Qual o novo valor do item {item}: "))
-      linha[-1] = str(valor)
-  linha_junta = ""
-  for i in linha:
-    linha_junta += i + " "
-  linha = linha_junta
+    if item_comparador == linha:
+      classificacao = input("Nova classificação: ")
+      nome = input("Nova Nome: ")
+      valor = float(input("Nova Valor: "))
+      produto = classificacao + " " + nome + " " + str(valor)
+      leitura.remove(leitura[i])
+      leitura.insert(i, produto)
   arquivo.close()
   arquivo = open(nome_arquivo, 'w', encoding='utf-8')
-  arquivo.writelines(linha)
+  for i in leitura:
+    arquivo.write(f"{i}\n")
   arquivo.close()
 
 def remover_itens(nome_arquivo):
-  pass
+  item_comparador = []
+  item = input("Qual item quer remover: ")
+  arquivo = open(nome_arquivo, 'r', encoding='utf-8')
+  leitura = arquivo.readlines()
+  item_comparador.append(item)
+  for i in range(len(leitura)):
+    linha = leitura[i].split()
+    linha.pop(0)
+    linha.pop(-1)
+    if item_comparador == linha:
+      leitura.remove(leitura[i])
+      leitura.insert(i, "")
+  arquivo.close()
+  arquivo = open(nome_arquivo, 'w', encoding='utf-8')
+  for i in leitura:
+    arquivo.write(f"{i}")
+  arquivo.close()
+  arquivo = open(nome_arquivo, 'a', encoding='utf-8')
+  arquivo.write("\n")
+  arquivo.close()
 
 def exibir_balanco(leitura: list):
   print("")
